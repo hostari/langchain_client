@@ -1,0 +1,15 @@
+name: banana
+description: banana.dev API wrapper for the Crystal language
+version: 0.1.0
+
+license: MIT
+
+authors:
+  - Xavi Ablaza <xavi@hostari.com>
+
+crystal: ">= 1.6.2"
+
+development_dependencies:
+  webmock:
+    github: manastech/webmock.cr
+    branch: master

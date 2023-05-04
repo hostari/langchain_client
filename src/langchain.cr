@@ -12,7 +12,7 @@ class Langchain
 
   QA_PATH = "/qa"
 
-  def self.qa(client : HTTP::Client, text : String, prompt : String, text_type : String = "html", return_source_documents : Bool = false)
+  def self.qa(client : HTTP::Client, token : String, text : String, prompt : String, text_type : String = "html", return_source_documents : Bool = false)
     headers = HTTP::Headers.new
     headers.add("Content-Type", "application/json")
 
@@ -23,7 +23,7 @@ class Langchain
     end
 
     res = client.post(
-      QA_PATH, headers: headers, body: {text: text, prompt: prompt, text_type: text_type, return_source_documents: return_source_documents_int}.to_json
+      QA_PATH, headers: headers, body: {token: token, text: text, prompt: prompt, text_type: text_type, return_source_documents: return_source_documents_int}.to_json
     )
 
     QaResult.from_json(res.body)

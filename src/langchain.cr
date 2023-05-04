@@ -2,8 +2,8 @@ require "json"
 require "http/client"
 
 class Langchain
-  def self.client(base_url : String) : HTTP::Client
-    HTTP::Client.new(base_url)
+  def self.client(uri : URI) : HTTP::Client
+    HTTP::Client.new(uri)
   end
 
   def self.client(base_url : String, port : Int32) : HTTP::Client

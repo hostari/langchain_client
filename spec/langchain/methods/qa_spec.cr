@@ -8,8 +8,8 @@ describe Langchain do
       .to_return(status: 200, body: File.read("spec/support/qa.json"), headers: {"Content-Type" => "application/json"})
 
     client = Langchain.client("localhost", 5000)
-    json = Hash(String, String | Bool).from_json(File.read("spec/support/qa_input.json"))
-    result = Langchain.qa(client, json["text"].as(String), json["prompt"].as(String), json["text_type"].as(String), json["return_source_documents"].as(Bool))
+    json = Hash(String, String | Bool).from_json(input)
+    result = Langchain.qa(client, json["token"].as(String), json["text"].as(String), json["prompt"].as(String), json["text_type"].as(String), json["return_source_documents"].as(Bool))
 
     result.should be_a(Langchain::QaResult)
   end

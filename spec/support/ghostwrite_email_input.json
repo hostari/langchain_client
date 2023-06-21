@@ -3,5 +3,7 @@
 	"text_type": "html",
 	"sales_rep": "Xavi",
 	"prospect": "SaaStr",
+	"company": "NewsletterDB",
+	"company_information": "NewsletterDB helps newsletter sponsors close sponsorship deals faster",
         "token": "this-is-a-test-token"
 }

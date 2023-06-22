@@ -9,7 +9,7 @@ describe Langchain do
 
     client = Langchain.client("localhost", 5000)
     json = Hash(String, String | Bool).from_json(input)
-    result = Langchain.ghostwrite(client, json["token"].as(String), json["text"].as(String), json["sales_rep"].as(String), json["prospect"].as(String), json["text_type"].as(String))
+    result = Langchain.ghostwrite(client, json["token"].as(String), json["text"].as(String), json["sales_rep"].as(String), json["prospect"].as(String), json["company"].as(String), json["company_information"].as(String), json["text_type"].as(String))
 
     result.should be_a(Langchain::GhostwriteResult)
   end

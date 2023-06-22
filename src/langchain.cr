@@ -29,12 +29,12 @@ class Langchain
     QaResult.from_json(res.body)
   end
 
-  def self.ghostwrite(client : HTTP::Client, token : String, text : String, sales_rep : String, prospect : String, text_type : String = "html", artifact : String = "email")
+  def self.ghostwrite(client : HTTP::Client, token : String, text : String, sales_rep : String, prospect : String, company : String, company_information : String, text_type : String = "html", artifact : String = "email")
     headers = HTTP::Headers.new
     headers.add("Content-Type", "application/json")
 
     res = client.post(
-      ghostwrite_path(artifact), headers: headers, body: {token: token, text: text, text_type: text_type, sales_rep: sales_rep, prospect: prospect}.to_json
+      ghostwrite_path(artifact), headers: headers, body: {token: token, text: text, text_type: text_type, sales_rep: sales_rep, prospect: prospect, company: company, company_information: company_information}.to_json
     )
 
     GhostwriteResult.from_json(res.body)

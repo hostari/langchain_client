@@ -37,6 +37,7 @@ class Langchain
       ghostwrite_path(artifact), headers: headers, body: {token: token, text: text, text_type: text_type, sales_rep: sales_rep, prospect: prospect}.to_json
     )
 
+    pp res.body
     GhostwriteResult.from_json(res.body)
   end
 
